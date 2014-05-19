@@ -10,13 +10,9 @@
     <form id="form1" runat="server">
     <div>
     
-        <h1>Login</h1>
-        <p>
-            <asp:Login ID="Login1" runat="server" DestinationPageUrl="~/Default.aspx">
-            </asp:Login>
-        </p>
-        <p>
-            &nbsp;</p>
+        <asp:Login ID="Login1" runat="server" CreateUserText="Register" CreateUserUrl="~/Register.aspx">
+        </asp:Login>
+        <br />
     
     </div>
     </form>

@@ -10,26 +10,24 @@
     <form id="form1" runat="server">
     <div>
     
-        <h1>HOME</h1>
+        <h1>Home</h1>
+        <p>
+            <asp:LoginView ID="LoginView1" runat="server">
+                <AnonymousTemplate>
+                    You are not logged in.
+                </AnonymousTemplate>
+                <LoggedInTemplate>
+                    Welcome,
+                    <asp:LoginName ID="LoginName1" runat="server" />
+                    .
+                </LoggedInTemplate>
+            </asp:LoginView>
+        </p>
+        <p>
+            <asp:LoginStatus ID="LoginStatus1" runat="server" />
+        </p>
     
     </div>
-        <asp:LoginView ID="LoginView1" runat="server">
-            <AnonymousTemplate>
-                You&#39;re not logged in!
-                <br />
-                <asp:LoginStatus ID="LoginStatus2" runat="server" />
-            </AnonymousTemplate>
-            <LoggedInTemplate>
-                Welcome,
-                <asp:LoginName ID="LoginName1" runat="server" />
-                .<br />
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/MemberPages/Profile.aspx">Profile</asp:HyperLink>
-                <br />
-                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/MemberPages/Networks.aspx">Networks</asp:HyperLink>
-                <br />
-                <asp:LoginStatus ID="LoginStatus1" runat="server" />
-            </LoggedInTemplate>
-        </asp:LoginView>
     </form>
 </body>
 </html>
