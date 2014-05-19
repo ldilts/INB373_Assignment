@@ -11,12 +11,14 @@ namespace Presentation.MemberPages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //this.User
         }
 
         protected void ObjectDataSource1_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
         {
-
+            
         }
+
+      
     }
 }

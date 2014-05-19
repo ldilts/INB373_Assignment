@@ -16,6 +16,9 @@
         <asp:LoginView ID="LoginView1" runat="server">
             <LoggedInTemplate>
                 <asp:LoginStatus ID="LoginStatus2" runat="server" />
+                <br />
+                <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="125px">
+                </asp:DetailsView>
             </LoggedInTemplate>
         </asp:LoginView>
     </form>
