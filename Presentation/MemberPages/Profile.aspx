@@ -11,14 +11,13 @@
     <div>
     
         <h1>PROFILE</h1>
-        <p>
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-            <asp:DetailsView ID="DetailsView1" runat="server" DataSourceID="ObjectDataSource1" Height="50px" Width="125px">
-            </asp:DetailsView>
-            <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OnSelecting="ObjectDataSource1_Selecting"></asp:ObjectDataSource>
-        </p>
     
     </div>
+        <asp:LoginView ID="LoginView1" runat="server">
+            <LoggedInTemplate>
+                <asp:LoginStatus ID="LoginStatus2" runat="server" />
+            </LoggedInTemplate>
+        </asp:LoginView>
     </form>
 </body>
 </html>

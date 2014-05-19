@@ -12,6 +12,10 @@
     
         <h1>Login</h1>
         <p>
+            <asp:Login ID="Login1" runat="server" DestinationPageUrl="~/Default.aspx">
+            </asp:Login>
+        </p>
+        <p>
             &nbsp;</p>
     
     </div>
