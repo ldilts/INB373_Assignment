@@ -26,6 +26,9 @@
         <p>
             <asp:LoginStatus ID="LoginStatus1" runat="server" />
         </p>
+        <p>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/MemberPages/Profile.aspx">Profile</asp:HyperLink>
+        </p>
     
     </div>
     </form>

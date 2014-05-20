@@ -11,8 +11,8 @@ namespace Business
     public class Class1
     {
         private static DataAccess.BikeWayDBTableAdapters.NetworksTableAdapter networksTableAdapter = new DataAccess.BikeWayDBTableAdapters.NetworksTableAdapter();
-        private static DataAccess.BikeWayDBTableAdapters.UsersTableAdapter usersTableAdapter = new DataAccess.BikeWayDBTableAdapters.UsersTableAdapter();
-
+        private static DataAccess.BikeWayDBTableAdapters.getSingleUserFavouriteStationsTableAdapter getSingleUserFavouriteStationsTableAdapter = new DataAccess.BikeWayDBTableAdapters.getSingleUserFavouriteStationsTableAdapter();
+        
         // NETWORKS
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Insert)]
         public static void insertNetwork(long NetworkId, string Company, string Href, string City, string Country, double Longitude, double Latitude)
@@ -38,29 +38,31 @@ namespace Business
             return networksTableAdapter.GetData();
         }
 
+        /*
         // USERS
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Insert)]
-        public static void insertUser(string Name)
+        public static void insertMember(string Name)
         {
-            usersTableAdapter.Insert(Name);
+            membersTableAdapter.Insert(Name);
         }
 
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Update)]
-        public static void updateUser(string Name, long Original_UserId)
+        public static void updateMember(string Name, long Original_UserId)
         {
-            usersTableAdapter.Update(Name, Original_UserId);
+            membersTableAdapter.Update(Name, Original_UserId);
         }
 
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Delete)]
-        public static void deleteUser(long Original_UserId)
+        public static void deleteMember(long Original_UserId)
         {
-            usersTableAdapter.Delete(Original_UserId);
+            membersTableAdapter.Delete(Original_UserId);
         }
+        */
 
-        [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select, true)]
-        public static Data.BikeWayDB.UsersDataTable getUsers(long UserId)
+        [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select, false)]
+        public static Data.BikeWayDB.getSingleUserFavouriteStationsDataTable getSingleUserFavouriteStations(Guid UserId)
         {
-            return usersTableAdapter.GetData(UserId);
+            return getSingleUserFavouriteStationsTableAdapter.GetData(UserId);
         }
     }
 }
