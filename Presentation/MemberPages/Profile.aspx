@@ -20,9 +20,6 @@
                 Welcome,
                 <asp:LoginName ID="LoginName1" runat="server" />
                 .<br />
-                <asp:Label ID="Label1" runat="server" OnDataBinding="Page_Load" OnInit="Page_Load" Text="Label"></asp:Label>
-                <br />
-                <br />
             </LoggedInTemplate>
         </asp:LoginView>
         <br />
