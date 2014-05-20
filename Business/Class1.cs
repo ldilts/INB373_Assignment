@@ -12,6 +12,7 @@ namespace Business
     {
         private static DataAccess.BikeWayDBTableAdapters.NetworksTableAdapter networksTableAdapter = new DataAccess.BikeWayDBTableAdapters.NetworksTableAdapter();
         private static DataAccess.BikeWayDBTableAdapters.UsersTableAdapter usersTableAdapter = new DataAccess.BikeWayDBTableAdapters.UsersTableAdapter();
+        private static DataAccess.BikeWayDBTableAdapters.getSingleUserFavouriteStationsTableAdapter getSingleUserFavouriteStationsTableAdapter = new DataAccess.BikeWayDBTableAdapters.getSingleUserFavouriteStationsTableAdapter();
 
         // NETWORKS
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Insert)]
@@ -61,6 +62,12 @@ namespace Business
         public static Data.BikeWayDB.UsersDataTable getUsers(long UserId)
         {
             return usersTableAdapter.GetData(UserId);
+        }
+
+        [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select, false)]
+        public static Data.BikeWayDB.getSingleUserFavouriteStationsDataTable getSingleUserFavouriteStations(Guid UserId)
+        {
+            return getSingleUserFavouriteStationsTableAdapter.GetData(UserId);
         }
     }
 }
