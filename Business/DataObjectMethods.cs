@@ -79,5 +79,7 @@ namespace Business
         {
             return getSingleUserFavouriteStationsTableAdapter.GetData(UserId);
         }
+
+
     }
 }
