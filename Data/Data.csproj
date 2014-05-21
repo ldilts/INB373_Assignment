@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2BF755A9-EEF7-41F1-AD3F-16DAC7614E24}</ProjectGuid>
+    <ProjectGuid>{F40DC7CE-FE32-4B21-A9A6-664E8F552A86}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Data</RootNamespace>
@@ -39,17 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BikeWayDB.Dataset.Designer.cs" />
-    <Compile Include="DataSet1.Dataset.Designer.cs" />
     <Compile Include="Model\AllNetworks.cs" />
     <Compile Include="Model\Company.cs" />
     <Compile Include="Model\Location.cs" />
     <Compile Include="Model\NetworkModel.cs" />
     <Compile Include="Model\StationModel.cs" />
+    <Compile Include="n8925666.Dataset.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="SampleData\StationList.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -57,10 +57,6 @@
       <Project>{bff201ad-7315-4510-87c5-65cec0e0dbb7}</Project>
       <Name>Business</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{2bf755a9-eef7-41f1-ad3f-16dac7614e24}</Project>
-      <Name>Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

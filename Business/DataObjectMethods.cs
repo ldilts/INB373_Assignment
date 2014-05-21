@@ -4,21 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccess;
-using Data.Model;
 
 namespace Business
 {
     [System.ComponentModel.DataObject]
     public class DataObjectMethods
     {
-        private static DataAccess.BikeWayDBTableAdapters.NetworksTableAdapter networksTableAdapter = new DataAccess.BikeWayDBTableAdapters.NetworksTableAdapter();
-        private static DataAccess.BikeWayDBTableAdapters.StationsTableAdapter stationsTableAdapter = new DataAccess.BikeWayDBTableAdapters.StationsTableAdapter();
-        private static DataAccess.BikeWayDBTableAdapters.getStationsFromNetworkTableAdapter getStationsFromNetworkTableAdapter = new DataAccess.BikeWayDBTableAdapters.getStationsFromNetworkTableAdapter();
-        private static DataAccess.BikeWayDBTableAdapters.getSingleUserFavouriteStationsTableAdapter getSingleUserFavouriteStationsTableAdapter = new DataAccess.BikeWayDBTableAdapters.getSingleUserFavouriteStationsTableAdapter();
+       
+
+        private static DataAccess.n8925666TableAdapters.NetworksTableAdapter networksTableAdapter = new DataAccess.n8925666TableAdapters.NetworksTableAdapter();
+        private static DataAccess.n8925666TableAdapters.StationsTableAdapter stationsTableAdapter = new DataAccess.n8925666TableAdapters.StationsTableAdapter();
+        private static DataAccess.n8925666TableAdapters.getStationsFromNetworkTableAdapter getStationsFromNetworkTableAdapter = new DataAccess.n8925666TableAdapters.getStationsFromNetworkTableAdapter();
+        private static DataAccess.n8925666TableAdapters.getSingleUserFavouriteStationsTableAdapter getSingleUserFavouriteStationsTableAdapter = new DataAccess.n8925666TableAdapters.getSingleUserFavouriteStationsTableAdapter();
 
         // NETWORKS
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select, true)]
-        public static Data.BikeWayDB.NetworksDataTable selectNetworks()
+        public static Data.n8925666.NetworksDataTable selectNetworks()
         {
             return networksTableAdapter.GetData();
         }
@@ -29,6 +30,7 @@ namespace Business
             networksTableAdapter.Insert(NetworkId, Company, Href, Latitude, Longitude, City, Country);
         }
 
+        /*
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Update)]
         public static void updateNetwork(string Company, string Href, double Latitude, double Longitude, string City, string Country, string Original_NetworkId)
         {
@@ -40,10 +42,11 @@ namespace Business
         {
             networksTableAdapter.Delete(Original_NetworkId);
         }
+        */
 
         // STATIONS
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select, true)]
-        public Data.BikeWayDB.StationsDataTable  selectStations()
+        public Data.n8925666.StationsDataTable  selectStations()
         {
             return stationsTableAdapter.GetData();
         }
@@ -53,7 +56,7 @@ namespace Business
         {
             stationsTableAdapter.Insert(StationId, Name, Latitude, Longitude, FreeBikes, Slots, StationTimeStamp, NetworkId);
         }
-
+        /*
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Update)]
         public static void updateStation(string Name, double Latitude, double Longitude, int FreeBikes, int Slots, DateTime StationTimeStamp, string NetworkId, string Original_StationId)
         {
@@ -65,18 +68,20 @@ namespace Business
         {
             stationsTableAdapter.Delete(Original_StationId);
         }
+        */
 
         // Get Stations From Network
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select, false)]
-        public static Data.BikeWayDB.getStationsFromNetworkDataTable getStationsFromNetwork(string NetworkId)
+        public static Data.n8925666.getStationsFromNetworkDataTable getStationsFromNetwork(string NetworkId)
         {
             return getStationsFromNetworkTableAdapter.GetData(NetworkId);
         }
 
         // Get User Favourite Stations
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select, false)]
-        public static Data.BikeWayDB.getSingleUserFavouriteStationsDataTable getSingleUserFavouriteStations(Guid UserId)
+        public static Data.n8925666.getSingleUserFavouriteStationsDataTable getSingleUserFavouriteStations(Guid UserId)
         {
+            //return getSingleUserFavouriteStationsTableAdapter.GetData(UserId);
             return getSingleUserFavouriteStationsTableAdapter.GetData(UserId);
         }
 

@@ -26,10 +26,10 @@ namespace DataAccess.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=WIN-RIA4MG1SAT3;Initial Catalog=BikeWayDB;Integrated Security=True")]
-        public string BikeWayDBConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=fastapps04.qut.edu.au;Initial Catalog=n8925666;User ID=n8925666")]
+        public string n8925666ConnectionString {
             get {
-                return ((string)(this["BikeWayDBConnectionString"]));
+                return ((string)(this["n8925666ConnectionString"]));
             }
         }
     }

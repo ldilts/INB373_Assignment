@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{18042594-9410-4A56-8FC8-53FBE392D7EF}</ProjectGuid>
+    <ProjectGuid>{78B87D8F-323D-42D1-ADC5-6F438E8D9A0B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DataAccess</RootNamespace>
@@ -39,10 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BikeWayDB.Designer.cs">
+    <Compile Include="n8925666.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BikeWayDB.xsd</DependentUpon>
+      <DependentUpon>n8925666.xsd</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -53,16 +53,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="BikeWayDB.xsc">
-      <DependentUpon>BikeWayDB.xsd</DependentUpon>
+    <None Include="n8925666.xsc">
+      <DependentUpon>n8925666.xsd</DependentUpon>
     </None>
-    <None Include="BikeWayDB.xsd">
+    <None Include="n8925666.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BikeWayDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>n8925666.Designer.cs</LastGenOutput>
     </None>
-    <None Include="BikeWayDB.xss">
-      <DependentUpon>BikeWayDB.xsd</DependentUpon>
+    <None Include="n8925666.xss">
+      <DependentUpon>n8925666.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -71,7 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{2BF755A9-EEF7-41F1-AD3F-16DAC7614E24}</Project>
+      <Project>{F40DC7CE-FE32-4B21-A9A6-664E8F552A86}</Project>
       <Name>Data</Name>
     </ProjectReference>
   </ItemGroup>
