@@ -54,8 +54,10 @@
                                             <br />                                                    
                                             <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
                                             <br />    
-                                                    
+                                            
+                                                  
                                             <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Log In" ValidationGroup="Login1" class="button"/>
+                                            <asp:Button ID="RegisterButton" runat="server" NavigateUrl="~/MemberPages/Register.aspx" Text="Register" ValidationGroup="Login1" class="button"/>
                                            
                                     </LayoutTemplate>
                                     

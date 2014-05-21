@@ -63,7 +63,7 @@
 					<p>Something here :)</p>
 				</div>
 				<div class="column">
-					
+				<button id="demo" onclick="getLocation()">Demo</button>	
 					
 				
 				</div>
@@ -83,5 +83,19 @@
 		</script>
 		<script src="javascript/cssParser.js"></script>
 		<script src="javascript/css-filters-polyfill.js"></script>
+
+        <script>
+            var x = document.getElementById("demo");
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                }
+                else { x.innerHTML = "Geolocation is not supported by this browser."; }
+            }
+            function showPosition(position) {
+                x.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+            }
+</script>
 	</body>
 </html>
