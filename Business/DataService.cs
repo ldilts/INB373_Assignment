@@ -47,6 +47,20 @@ namespace ConsoleApplication
 
         }
 
+        /*
+        public static void InsertToDatabase(AllNetworks allNetworks)
+        {
+
+            foreach (NetworkModel network in allNetworks.Networks ) {
+                
+                DataObjectMethods
+
+            }
+
+        }
+        */
+
+
         public static void GetNetworkListFromFile()
         {
             string result = System.IO.File.ReadAllText(path);

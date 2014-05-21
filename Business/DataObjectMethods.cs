@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccess;
+using Data.Model;
 
 namespace Business
 {
     [System.ComponentModel.DataObject]
-    public class Class1
+    public class DataObjectMethods
     {
         private static DataAccess.BikeWayDBTableAdapters.NetworksTableAdapter networksTableAdapter = new DataAccess.BikeWayDBTableAdapters.NetworksTableAdapter();
         private static DataAccess.BikeWayDBTableAdapters.UsersTableAdapter usersTableAdapter = new DataAccess.BikeWayDBTableAdapters.UsersTableAdapter();
@@ -68,6 +69,11 @@ namespace Business
         public static Data.BikeWayDB.getSingleUserFavouriteStationsDataTable getSingleUserFavouriteStations(Guid UserId)
         {
             return getSingleUserFavouriteStationsTableAdapter.GetData(UserId);
+        }
+
+
+        public static void insertAll(AllNetworks allNetworks) {
+            
         }
     }
 }
