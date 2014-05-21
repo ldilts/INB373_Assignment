@@ -64,11 +64,11 @@
     <Content Include="DefaultTest.aspx" />
     <Content Include="fonts\codropsicons\codropsicons.svg" />
     <Content Include="fonts\codropsicons\license.txt" />
-    <Content Include="js\classie.js" />
-    <Content Include="js\css-filters-polyfill.js" />
-    <Content Include="js\cssParser.js" />
-    <Content Include="js\modalEffects.js" />
-    <Content Include="js\modernizr.custom.js" />
+    <Content Include="javascript\classie.js" />
+    <Content Include="javascript\css-filters-polyfill.js" />
+    <Content Include="javascript\cssParser.js" />
+    <Content Include="javascript\modalEffects.js" />
+    <Content Include="javascript\modernizr.custom.js" />
     <Content Include="Login.aspx" />
     <Content Include="MemberPages\Networks.aspx" />
     <Content Include="MemberPages\Profile.aspx" />

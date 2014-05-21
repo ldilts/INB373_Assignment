@@ -56,7 +56,7 @@ namespace ConsoleApplication
                 List<NetworkModel> networkList = JsonConvert.DeserializeObject<List<NetworkModel>>(result);
                 foreach (NetworkModel network in networkList)
                 {
-                    Console.WriteLine("Network: " + network.Name + "   Stations count: " + network.Stations.Count);
+                    Console.WriteLine("Network: " + network.id + "\t   Stations count: " + network.Stations.Count);
                 }
             }
             catch (Exception ex)
