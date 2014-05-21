@@ -18,46 +18,46 @@
                 <asp:BoundField DataField="NetworkId" HeaderText="NetworkId" ReadOnly="True" SortExpression="NetworkId" />
                 <asp:BoundField DataField="Company" HeaderText="Company" SortExpression="Company" />
                 <asp:BoundField DataField="Href" HeaderText="Href" SortExpression="Href" />
+                <asp:BoundField DataField="Latitude" HeaderText="Latitude" SortExpression="Latitude" />
+                <asp:BoundField DataField="Longitude" HeaderText="Longitude" SortExpression="Longitude" />
                 <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
                 <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country" />
-                <asp:BoundField DataField="Longitude" HeaderText="Longitude" SortExpression="Longitude" />
-                <asp:BoundField DataField="Latitude" HeaderText="Latitude" SortExpression="Latitude" />
             </Fields>
         </asp:DetailsView>
+        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" DeleteMethod="deleteNetwork" InsertMethod="insertNetwork" OldValuesParameterFormatString="original_{0}" SelectMethod="selectNetworks" TypeName="Business.DataObjectMethods" UpdateMethod="updateNetwork">
+            <DeleteParameters>
+                <asp:Parameter Name="Original_NetworkId" Type="String" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="NetworkId" Type="String" />
+                <asp:Parameter Name="Company" Type="String" />
+                <asp:Parameter Name="Href" Type="String" />
+                <asp:Parameter Name="Latitude" Type="Double" />
+                <asp:Parameter Name="Longitude" Type="Double" />
+                <asp:Parameter Name="City" Type="String" />
+                <asp:Parameter Name="Country" Type="String" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="Company" Type="String" />
+                <asp:Parameter Name="Href" Type="String" />
+                <asp:Parameter Name="Latitude" Type="Double" />
+                <asp:Parameter Name="Longitude" Type="Double" />
+                <asp:Parameter Name="City" Type="String" />
+                <asp:Parameter Name="Country" Type="String" />
+                <asp:Parameter Name="Original_NetworkId" Type="String" />
+            </UpdateParameters>
+        </asp:ObjectDataSource>
         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="NetworkId" DataSourceID="ObjectDataSource1">
             <Columns>
                 <asp:BoundField DataField="NetworkId" HeaderText="NetworkId" ReadOnly="True" SortExpression="NetworkId" />
                 <asp:BoundField DataField="Company" HeaderText="Company" SortExpression="Company" />
                 <asp:BoundField DataField="Href" HeaderText="Href" SortExpression="Href" />
+                <asp:BoundField DataField="Latitude" HeaderText="Latitude" SortExpression="Latitude" />
+                <asp:BoundField DataField="Longitude" HeaderText="Longitude" SortExpression="Longitude" />
                 <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
                 <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country" />
-                <asp:BoundField DataField="Longitude" HeaderText="Longitude" SortExpression="Longitude" />
-                <asp:BoundField DataField="Latitude" HeaderText="Latitude" SortExpression="Latitude" />
             </Columns>
         </asp:GridView>
-        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" DeleteMethod="deleteNetwork" InsertMethod="insertNetwork" OldValuesParameterFormatString="original_{0}" SelectMethod="getNetworks" TypeName="Business.Class1" UpdateMethod="updateNetwork">
-            <DeleteParameters>
-                <asp:Parameter Name="Original_NetworkId" Type="Int64" />
-            </DeleteParameters>
-            <InsertParameters>
-                <asp:Parameter Name="NetworkId" Type="Int64" />
-                <asp:Parameter Name="Company" Type="String" />
-                <asp:Parameter Name="Href" Type="String" />
-                <asp:Parameter Name="City" Type="String" />
-                <asp:Parameter Name="Country" Type="String" />
-                <asp:Parameter Name="Longitude" Type="Double" />
-                <asp:Parameter Name="Latitude" Type="Double" />
-            </InsertParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="Company" Type="String" />
-                <asp:Parameter Name="Href" Type="String" />
-                <asp:Parameter Name="City" Type="String" />
-                <asp:Parameter Name="Country" Type="String" />
-                <asp:Parameter Name="Longitude" Type="Double" />
-                <asp:Parameter Name="Latitude" Type="Double" />
-                <asp:Parameter Name="Original_NetworkId" Type="Int64" />
-            </UpdateParameters>
-        </asp:ObjectDataSource>
         <br />
         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/MemberPages/Profile.aspx">My Profile</asp:HyperLink>
         <br />

@@ -12,68 +12,72 @@ namespace Business
     public class DataObjectMethods
     {
         private static DataAccess.BikeWayDBTableAdapters.NetworksTableAdapter networksTableAdapter = new DataAccess.BikeWayDBTableAdapters.NetworksTableAdapter();
-        private static DataAccess.BikeWayDBTableAdapters.UsersTableAdapter usersTableAdapter = new DataAccess.BikeWayDBTableAdapters.UsersTableAdapter();
+        private static DataAccess.BikeWayDBTableAdapters.StationsTableAdapter stationsTableAdapter = new DataAccess.BikeWayDBTableAdapters.StationsTableAdapter();
+        private static DataAccess.BikeWayDBTableAdapters.getStationsFromNetworkTableAdapter getStationsFromNetworkTableAdapter = new DataAccess.BikeWayDBTableAdapters.getStationsFromNetworkTableAdapter();
         private static DataAccess.BikeWayDBTableAdapters.getSingleUserFavouriteStationsTableAdapter getSingleUserFavouriteStationsTableAdapter = new DataAccess.BikeWayDBTableAdapters.getSingleUserFavouriteStationsTableAdapter();
 
         // NETWORKS
-        [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Insert)]
-        public static void insertNetwork(long NetworkId, string Company, string Href, string City, string Country, double Longitude, double Latitude)
-        {
-            networksTableAdapter.Insert(NetworkId, Company, Href, City, Country, Longitude, Latitude);
-        }
-
-        [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Update)]
-        public static void updateNetwork(string Company, string Href, string City, string Country, double Longitude, double Latitude, long Original_NetworkId)
-        {
-            networksTableAdapter.Update(Company, Href, City, Country, Longitude, Latitude, Original_NetworkId);
-        }
-
-        [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Delete)]
-        public static void deleteNetwork(long Original_NetworkId)
-        {
-            networksTableAdapter.Delete(Original_NetworkId);
-        }
-
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select, true)]
-        public static Data.BikeWayDB.NetworksDataTable getNetworks()
+        public static Data.BikeWayDB.NetworksDataTable selectNetworks()
         {
             return networksTableAdapter.GetData();
         }
 
-        // USERS
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Insert)]
-        public static void insertUser(string Name)
+        public static void insertNetwork(string NetworkId, string Company, string Href, double Latitude, double Longitude, string City, string Country)
         {
-            usersTableAdapter.Insert(Name);
+            networksTableAdapter.Insert(NetworkId, Company, Href, Latitude, Longitude, City, Country);
         }
 
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Update)]
-        public static void updateUser(string Name, long Original_UserId)
+        public static void updateNetwork(string Company, string Href, double Latitude, double Longitude, string City, string Country, string Original_NetworkId)
         {
-            usersTableAdapter.Update(Name, Original_UserId);
+            networksTableAdapter.Update(Company, Href, Latitude, Longitude, City, Country, Original_NetworkId);
         }
 
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Delete)]
-        public static void deleteUser(long Original_UserId)
+        public static void deleteNetwork(string Original_NetworkId)
         {
-            usersTableAdapter.Delete(Original_UserId);
+            networksTableAdapter.Delete(Original_NetworkId);
         }
 
+        // STATIONS
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select, true)]
-        public static Data.BikeWayDB.UsersDataTable getUsers(long UserId)
+        public Data.BikeWayDB.StationsDataTable  selectStations()
         {
-            return usersTableAdapter.GetData(UserId);
+            return stationsTableAdapter.GetData();
         }
 
+        [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Insert)]
+        public static void insertStation(string StationId, string Name, double Latitude, double Longitude, int FreeBikes, int Slots, DateTime StationTimeStamp, string NetworkId)
+        {
+            stationsTableAdapter.Insert(StationId, Name, Latitude, Longitude, FreeBikes, Slots, StationTimeStamp, NetworkId);
+        }
+
+        [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Update)]
+        public static void updateStation(string Name, double Latitude, double Longitude, int FreeBikes, int Slots, DateTime StationTimeStamp, string NetworkId, string Original_StationId)
+        {
+            stationsTableAdapter.Update(Name, Latitude, Longitude, FreeBikes, Slots, StationTimeStamp, NetworkId, Original_StationId);
+        }
+
+        [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Delete)]
+        public static void deleteStation(string Original_StationId)
+        {
+            stationsTableAdapter.Delete(Original_StationId);
+        }
+
+        // Get Stations From Network
+        [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select, false)]
+        public static Data.BikeWayDB.getStationsFromNetworkDataTable getStationsFromNetwork(string NetworkId)
+        {
+            return getStationsFromNetworkTableAdapter.GetData(NetworkId);
+        }
+
+        // Get User Favourite Stations
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select, false)]
         public static Data.BikeWayDB.getSingleUserFavouriteStationsDataTable getSingleUserFavouriteStations(Guid UserId)
         {
             return getSingleUserFavouriteStationsTableAdapter.GetData(UserId);
-        }
-
-
-        public static void insertAll(AllNetworks allNetworks) {
-            
         }
     }
 }

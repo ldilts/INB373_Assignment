@@ -36,7 +36,7 @@
                 <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country" />
             </Columns>
         </asp:GridView>
-        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" OnSelecting="ObjectDataSource1_Selecting" SelectMethod="getSingleUserFavouriteStations" TypeName="Business.Class1">
+        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" OnSelecting="ObjectDataSource1_Selecting" SelectMethod="getSingleUserFavouriteStations" TypeName="Business.DataObjectMethods">
             <SelectParameters>
                 <asp:Parameter DbType="Guid" Name="UserId" />
             </SelectParameters>
