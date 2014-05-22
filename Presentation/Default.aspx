@@ -76,16 +76,39 @@
 				</div>--%>
                 <form id="form2" runat="server"  >
                 <div>
-                    <asp:Label runat="server" Text="Type in your city" class="text-large"/>
-        
+                    <asp:Label runat="server" Text="Type in your city" class="text-large"/>        
                     <br />
                     <div>
-                        <asp:TextBox  runat="server" CssClass="text-box-large" />
-                        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="/images/appbar.magnify.png"  CssClass="button search-button" />
+                        <asp:TextBox ID="cityInput" runat="server" CssClass="text-box-large" />
+                        <asp:ImageButton ID="searchButton" runat="server" ImageUrl="/images/appbar.magnify.png"  CssClass="button search-button"   />
+                        <button id="demo" onclick="getLocation()" class="button">Demo</button>	
+                       
+                        <br />
+                        <%--<a href="#set-8" class="hi-icon hi-icon-contract">Contact</a>--%>
+                        <br />
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1">
+                            <Columns>
+                                <asp:BoundField DataField="StationId" HeaderText="StationId" SortExpression="StationId" />
+                                <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                                <asp:BoundField DataField="Latitude" HeaderText="Latitude" SortExpression="Latitude" />
+                                <asp:BoundField DataField="Longitude" HeaderText="Longitude" SortExpression="Longitude" />
+                                <asp:BoundField DataField="FreeBikes" HeaderText="FreeBikes" SortExpression="FreeBikes" />
+                                <asp:BoundField DataField="Slots" HeaderText="Slots" SortExpression="Slots" />
+                                <asp:BoundField DataField="StationTimeStamp" HeaderText="StationTimeStamp" SortExpression="StationTimeStamp" />
+                                <asp:BoundField DataField="NetworkId" HeaderText="NetworkId" SortExpression="NetworkId" />
+                            </Columns>
+                        </asp:GridView>
+                        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="getStationsFromCity" TypeName="Business.DataObjectMethods">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="cityInput" Name="City" PropertyName="Text" Type="String" />
+                            </SelectParameters>
+                        </asp:ObjectDataSource>
+                        
                     </div>
                 </div>
                 </form>
 			</div>
+
 		</div><!-- /container -->
 		<div class="md-overlay"></div><!-- the overlay element -->
 

@@ -1,4 +1,5 @@
-﻿using Data.Model;
+﻿using Business;
+using Data.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication
+namespace Business
 {
     public static class DataService
     {
@@ -71,11 +72,19 @@ namespace ConsoleApplication
                 foreach (NetworkModel network in networkList)
                 {
                     Console.WriteLine("Network: " + network.Name + "   Stations count: " + network.Stations.Count);
+                    
                 }
+
+                Console.WriteLine("Number of networks: " + networkList.Count);
+                Debug.WriteLine("Number of networks: " + networkList.Count);
+
+                addAllToDatabase(networkList);
+
+                
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Debug.WriteLine(ex.Message);
             }
 
             
@@ -159,6 +168,24 @@ namespace ConsoleApplication
                 Debug.WriteLine("ERROR downloading api of stations ");
                 Console.WriteLine("ERROR downloading api of stations ");
                 
+            }
+        }
+
+        private static void addAllToDatabase(List<NetworkModel> networks)
+        {
+            foreach (NetworkModel network in networks)
+            {
+                System.Threading.Thread.Sleep(200);
+                DataObjectMethods.insertNetwork(network.id, null, network.href, network.Location.Latitude, network.Location.Longitude, network.Location.City, network.Location.Country);
+                Console.WriteLine("*****************************************\n");
+                Console.WriteLine("Inserting network: " + network.Name);
+                Console.WriteLine("*****************************************\n");
+
+                foreach (StationModel station in network.Stations)
+                {
+                    DataObjectMethods.insertStation(station.id, station.Name, station.Latitude, station.Longitude, station.Free_bikes, station.Empty_slots, DateTime.Parse(station.Timestamp), network.id);
+                    Console.WriteLine("Station inserted: " + station.Name);
+                }
             }
         }
 

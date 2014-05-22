@@ -3,17 +3,36 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
+<head id="Head1" runat="server">
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Bikeway</title>
+		<meta name="description" content="BikeWay />
+		<meta name="author" content="Aline & Lucas" />
+		<link rel="shortcut icon" href="../favicon.ico"> 
+		<link rel="stylesheet" type="text/css" href="../stylesheets/default.css" />
+		<link rel="stylesheet" type="text/css" href="../stylesheets/component.css" />
+		<script src="javascript/modernizr.custom.js"></script>
 </head>
 <body>
+
+    <div class="container-profile container">
+    <!-- Top Navigation -->
+	<div class="codrops-top clearfix" >
+		<div class="codrops-top clearfix">
+            <asp:LoginView>
+                <AnonymousTemplate>
+                    <span class="right"><button class="md-trigger" data-modal="modal-16">Sign in</button></span>
+                </AnonymousTemplate>
+            </asp:LoginView>                				
+	</div>
+	</div>
+	<header>
+		<h1> BIKEWAY </h1>
+	</header>
     <form id="form1" runat="server">
-    <div>
-    
-        <h1>PROFILE</h1>
-    
-    </div>
-        <asp:LoginView ID="LoginView1" runat="server">
+        <asp:LoginView ID="LoginView1" runat="server" >
             <LoggedInTemplate>
                 Welcome,
                 <asp:LoginName ID="LoginName1" runat="server" />
@@ -43,5 +62,8 @@
         </asp:ObjectDataSource>
         <br />
     </form>
+
+    <script src="javascript/cssParser.js"></script>
+	<script src="javascript/css-filters-polyfill.js"></script>
 </body>
 </html>
