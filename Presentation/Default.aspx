@@ -6,7 +6,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 		<title>Bikeway</title>
-		<meta name="description" content="BikeWay />
+		<meta name="description" content="BikeWay" />
 		<meta name="author" content="Aline & Lucas" />
 		<link rel="shortcut icon" href="../favicon.ico"> 
 		<link rel="stylesheet" type="text/css" href="stylesheets/default.css" />
@@ -53,7 +53,7 @@
             <!-- Top Navigation -->
 			<div class="codrops-top clearfix">
 				<div class="codrops-top clearfix">
-                    <asp:LoginView>
+                    <asp:LoginView runat="server">
                         <AnonymousTemplate>
                             <span class="right"><button class="md-trigger" data-modal="modal-16">Sign in</button></span>
                         </AnonymousTemplate>

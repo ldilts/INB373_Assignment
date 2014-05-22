@@ -18,6 +18,7 @@ namespace Business
         private static DataAccess.n8925666TableAdapters.getStationsFromNetworkTableAdapter getStationsFromNetworkTableAdapter = new DataAccess.n8925666TableAdapters.getStationsFromNetworkTableAdapter();
         private static DataAccess.n8925666TableAdapters.getSingleUserFavouriteStationsTableAdapter getSingleUserFavouriteStationsTableAdapter = new DataAccess.n8925666TableAdapters.getSingleUserFavouriteStationsTableAdapter();
         private static DataAccess.n8925666TableAdapters.getStationsFromCityTableAdapter getStationsFromCityTableAdapter = new DataAccess.n8925666TableAdapters.getStationsFromCityTableAdapter();
+        private static DataAccess.n8925666TableAdapters.SelectClosestStationsTableAdapter selectClosestStationsTableAdapter = new DataAccess.n8925666TableAdapters.SelectClosestStationsTableAdapter();
 
         // NETWORKS
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select, true)]
@@ -116,5 +117,11 @@ namespace Business
             return getStationsFromCityTableAdapter.GetData(City);
         }
 
+        // Select Closest Stations
+        [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select, false)]
+        public static Data.n8925666.SelectClosestStationsDataTable selectClosestStations(double LatLow, double LatHigh, double LongLow, double LongHigh)
+        {
+            return selectClosestStationsTableAdapter.GetData(LatLow, LatHigh, LongLow, LongHigh);
+        }
     }
 }

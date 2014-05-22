@@ -73,7 +73,9 @@
     <Content Include="Login.aspx" />
     <Content Include="MemberPages\Networks.aspx" />
     <Content Include="MemberPages\Profile.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Default.aspx.cs">
