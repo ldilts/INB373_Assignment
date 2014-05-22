@@ -173,6 +173,21 @@ a:active {
     color:#1e5c99;
 }
 
+.station-list {
+}
+
+.station-list-label {
+    padding-left:1em;
+
+}
+
+.station-name {
+    font-size: large;
+	line-height: 1.3;
+	margin: 0;
+	font-weight: 300;
+}
+
 .text-box {
 	width: 230px;
 	border: 1px solid #3366FF;
@@ -286,6 +301,52 @@ button:hover {
 
 .button:hover {
 	background: #153f69;
+}
+
+.station-list-container {
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+	border: none;
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	background: none;
+	cursor: pointer;
+	padding: 10px;
+	display: inline-block;
+    height:auto;
+    width:80%;
+	margin: 10px 10px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
+	outline: none;
+	position: relative;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+    border: solid 2px #226fbe;
+	border-radius: 15px;
+}
+
+.station-list-main {
+    width:50%;
+}
+
+.station-list-container:after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+
+.station-list-container:hover {
+	background: #2980d4;
+	color: #fff;
 }
 
 

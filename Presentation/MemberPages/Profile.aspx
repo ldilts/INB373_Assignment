@@ -31,6 +31,50 @@
 	<header>
 		<h1> BIKEWAY </h1>
 	</header>
+        <div class="main clearfix">
+            <div class="column" >
+
+            </div>
+            <div class="column" >
+                <asp:ListView runat="server" ID="StationsListView" 
+                    DataSourceID="ObjectDataSource1" class="station-list">
+                    <LayoutTemplate>
+                    <table cellpadding="2" runat="server" id="stations" 
+                        >
+                        <tr runat="server" id="itemPlaceholder">
+                        </tr>
+                    </table>
+                    </LayoutTemplate>
+                    <ItemTemplate>
+                        <tr id="Tr1" runat="server" class="station-list-container" >
+                        <td colspan="2" align="center" 
+                            class="StationName">
+                            <asp:Label  ID="FirstNameLabel" runat="server" 
+                            Text='<%#Eval("Name") %>' class="station-name"/> 
+                        
+                        <br />
+                       
+                           <asp:Label ID="Label2" runat="server" Text="Bikes:" CssClass="station-list-label" />
+                            <asp:Label  ID="Label5" runat="server" 
+                            Text='<%#Eval("FreeBikes") %>' class="station-name"/>
+                       
+                       
+                           <asp:Label ID="Label3" runat="server" Text="Slots:" CssClass="station-list-label" />
+                            <asp:Label  ID="Label4" runat="server" 
+                            Text='<%#Eval("Slots") %>' class="station-name"/>
+                       </td>
+                        </tr>
+                    </ItemTemplate>
+                </asp:ListView>
+                <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" OnSelecting="ObjectDataSource1_Selecting" SelectMethod="getSingleUserFavouriteStations" TypeName="Business.DataObjectMethods">
+                    <SelectParameters>
+                        <asp:Parameter DbType="Guid" Name="UserId" />
+                    </SelectParameters>
+                </asp:ObjectDataSource>
+                <br />
+            
+            </div>
+        </div>
     <form id="form1" runat="server">
         <asp:LoginView ID="LoginView1" runat="server" >
             <LoggedInTemplate>
@@ -44,7 +88,8 @@
         <br />
         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         <br />
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1">
+        </form>
+        <%--<asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1">
             <Columns>
                 <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
                 <asp:BoundField DataField="Longitude" HeaderText="Longitude" SortExpression="Longitude" />
@@ -54,14 +99,9 @@
                 <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
                 <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country" />
             </Columns>
-        </asp:GridView>
-        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" OnSelecting="ObjectDataSource1_Selecting" SelectMethod="getSingleUserFavouriteStations" TypeName="Business.DataObjectMethods">
-            <SelectParameters>
-                <asp:Parameter DbType="Guid" Name="UserId" />
-            </SelectParameters>
-        </asp:ObjectDataSource>
-        <br />
-    </form>
+        </asp:GridView>--%>
+
+        
 
     <script src="javascript/cssParser.js"></script>
 	<script src="javascript/css-filters-polyfill.js"></script>

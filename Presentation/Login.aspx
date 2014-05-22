@@ -36,7 +36,7 @@
                             <h1>Login</h1>
                             <p>
                                 <asp:Login ID="Login1" runat="server" DestinationPageUrl="~/MemberPages/Profile.aspx">
-                                    <LayoutTemplate>                                       
+                                    <LayoutTemplate>                             
 
                                             <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">User Name:</asp:Label>
                                             <br />

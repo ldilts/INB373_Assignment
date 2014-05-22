@@ -80,13 +80,14 @@
                     <br />
                     <div>
                         <asp:TextBox ID="cityInput" runat="server" CssClass="text-box-large" />
-                        <asp:ImageButton ID="searchButton" runat="server" ImageUrl="/images/appbar.magnify.png"  CssClass="button search-button"   />
-                        <button id="demo" onclick="getLocation()" class="button">Demo</button>	
+                        <%--<asp:ImageButton ID="searchButton" runat="server" ImageUrl="/images/appbar.magnify.png"  CssClass="button search-button"   />--%>
+                        <br />
+                        <button id="demo" onclick="getLocation()" class="button" >get my location</button>	
                        
                         <br />
                         <%--<a href="#set-8" class="hi-icon hi-icon-contract">Contact</a>--%>
                         <br />
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1">
+                        <%--<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1">
                             <Columns>
                                 <asp:BoundField DataField="StationId" HeaderText="StationId" SortExpression="StationId" />
                                 <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
@@ -97,7 +98,37 @@
                                 <asp:BoundField DataField="StationTimeStamp" HeaderText="StationTimeStamp" SortExpression="StationTimeStamp" />
                                 <asp:BoundField DataField="NetworkId" HeaderText="NetworkId" SortExpression="NetworkId" />
                             </Columns>
-                        </asp:GridView>
+                        </asp:GridView>--%>
+                        <asp:ListView runat="server" ID="StationsListView" 
+                            DataSourceID="ObjectDataSource1" class="station-list">
+                            <LayoutTemplate>
+                            <table cellpadding="2" runat="server" id="stations" 
+                                >
+                                <tr runat="server" id="itemPlaceholder">
+                                </tr>
+                            </table>
+                            </LayoutTemplate>
+                            <ItemTemplate>
+                                <tr id="Tr1" runat="server" class="station-list-container station-list-main" >
+                                <td colspan="2" align="center" 
+                                    class="StationName">
+                                    <asp:Label  ID="FirstNameLabel" runat="server" 
+                                    Text='<%#Eval("Name") %>' class="station-name"/> 
+                        
+                                <br />
+                       
+                                   <asp:Label ID="Label2" runat="server" Text="Bikes:" CssClass="station-list-label" />
+                                    <asp:Label  ID="Label5" runat="server" 
+                                    Text='<%#Eval("FreeBikes") %>' class="station-name"/>
+                       
+                       
+                                   <asp:Label ID="Label3" runat="server" Text="Slots:" CssClass="station-list-label" />
+                                    <asp:Label  ID="Label4" runat="server" 
+                                    Text='<%#Eval("Slots") %>' class="station-name"/>
+                               </td>
+                                </tr>
+                            </ItemTemplate>
+                </asp:ListView>
                         <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="getStationsFromCity" TypeName="Business.DataObjectMethods">
                             <SelectParameters>
                                 <asp:ControlParameter ControlID="cityInput" Name="City" PropertyName="Text" Type="String" />
