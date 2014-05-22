@@ -12,7 +12,7 @@ namespace Presentation.MemberPages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label1.Text = Membership.GetUser().ProviderUserKey.ToString();
+            //Label1.Text = Membership.GetUser().ProviderUserKey.ToString();
         }
 
         protected void ObjectDataSource1_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)

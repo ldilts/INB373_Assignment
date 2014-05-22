@@ -21,11 +21,7 @@
     <!-- Top Navigation -->
 	<div class="codrops-top clearfix" >
 		<div class="codrops-top clearfix">
-            <asp:LoginView>
-                <AnonymousTemplate>
-                    <span class="right"><button class="md-trigger" data-modal="modal-16">Sign in</button></span>
-                </AnonymousTemplate>
-            </asp:LoginView>                				
+            <a href="../Default.aspx" class="button" >Home</a>             				
 	</div>
 	</div>
 	<header>
@@ -33,9 +29,16 @@
 	</header>
         <div class="main clearfix">
             <div class="column" >
+                <h1>Welcome, <asp:LoginName ID="LoginName1" runat="server" class="welcome"/> </h1>
 
+                <br />
+                <br />
+                <form id="form2" runat="server">
+                <div class="button button-login"><asp:LoginStatus ID="LoginStatus2" runat="server" /></div>
+                </form>
             </div>
             <div class="column" >
+                <h1>Favorites</h1>
                 <asp:ListView runat="server" ID="StationsListView" 
                     DataSourceID="ObjectDataSource1" class="station-list">
                     <LayoutTemplate>
@@ -75,7 +78,8 @@
             
             </div>
         </div>
-    <form id="form1" runat="server">
+
+<%--    <form id="form1" runat="server">
         <asp:LoginView ID="LoginView1" runat="server" >
             <LoggedInTemplate>
                 Welcome,
@@ -88,7 +92,7 @@
         <br />
         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         <br />
-        </form>
+        </form>--%>
         <%--<asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1">
             <Columns>
                 <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
@@ -101,9 +105,11 @@
             </Columns>
         </asp:GridView>--%>
 
-        
+            
 
     <script src="javascript/cssParser.js"></script>
 	<script src="javascript/css-filters-polyfill.js"></script>
+    <script src="js/polyfills.js"></script>
+
 </body>
 </html>

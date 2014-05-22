@@ -11,7 +11,37 @@
 		<link rel="shortcut icon" href="../favicon.ico"> 
 		<link rel="stylesheet" type="text/css" href="stylesheets/default.css" />
 		<link rel="stylesheet" type="text/css" href="stylesheets/component.css" />
-		<script src="javascript/modernizr.custom.js"></script>
+		<script src="javascript/modernizr-2.6.2.min.js"></script>	
+        <script src="javascript/modernizr.custom.js"></script>
+
+    <script>
+        function showCustomer(lat, lon)
+        {
+            var xmlhttp;    
+            if (lat=="" || lon=="")
+            {
+                document.getElementById("txtHint").innerHTML="";
+                return;
+            }
+            if (window.XMLHttpRequest)
+            {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+            }
+            else
+            {// code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function()
+            {
+                if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                    document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET","getcustomer.asp?q="+lat","lon,true);
+            xmlhttp.send();
+        }
+		</script>
 </head>
 	<body>
 		<!-- All modals added here for the demo. You would of course just have one, dynamically created -->
@@ -53,18 +83,43 @@
             <!-- Top Navigation -->
 			<div class="codrops-top clearfix">
 				<div class="codrops-top clearfix">
-                    <asp:LoginView>
-                        <AnonymousTemplate>
-                            <span class="right"><button class="md-trigger" data-modal="modal-16">Sign in</button></span>
-                        </AnonymousTemplate>
-                    </asp:LoginView>
-                    				
-			</div>
+
+                        <form action="" runat="server">
+                            <div class="button"> <asp:LoginStatus ID="LoginStatus2" runat="server" /> </div>
+                        </form>
+                        
+<%--                        <asp:LoginView runat="server">
+                            <AnonymousTemplate>
+                                <span class="right"><button class="md-trigger" data-modal="modal-16">Sign in</button></span>
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                                <a href="~/MemberPages/Profile.aspx" class="button" />
+                            </LoggedInTemplate>
+                        </asp:LoginView>     
+                    </asp:View>   --%>            				
+			    </div>
 			</div>
 			<header>
 				<h1> BIKEWAY <span>The best source for shared-bikes information</span></h1>
 			</header>
+
 			<div class="main-page">
+
+<%--                <div class="component">
+				<!-- Start Nav Structure -->
+				<button class="cn-button" id="cn-button">+</button>
+				<div class="cn-wrapper" id="cn-wrapper">
+				    <ul>
+				      <li><a href="#"><span class="icon-picture"></span></a></li>
+				      <li><a href="#"><span class="icon-headphones"></span></a></li>
+				      <li><a href="#"><span class="icon-home"></span></a></li>
+				      <li><a href="#"><span class="icon-facetime-video"></span></a></li>
+				      <li><a href="#"><span class="icon-envelope-alt"></span></a></li>
+				     </ul>
+				</div>
+				<div id="cn-overlay" class="cn-overlay"></div>
+				<!-- End Nav Structure -->
+			</div>--%>
 
 <%--				<div class="column">
 					<p>Something here :)</p>
@@ -74,6 +129,7 @@
 					
 				
 				</div>--%>
+            
                 <form id="form2" runat="server"  >
                 <div>
                     <asp:Label runat="server" Text="Type in your city" class="text-large"/>        
@@ -140,34 +196,42 @@
                 </form>
 			</div>
 
+		    
+        
 		</div><!-- /container -->
+
 		<div class="md-overlay"></div><!-- the overlay element -->
 
 		<!-- classie.js by @desandro: https://github.com/desandro/classie -->
 		<script src="javascript/classie.js"></script>
 		<script src="javascript/modalEffects.js"></script>
+        <script src="javascript/polyfills.js"></script>
 
 		<!-- for the blur effect -->
 		<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
 		<script>
 		    // this is important for IEs
-		    var polyfilter_scriptpath = '/js/';
+		    var polyfilter_scriptpath = '/javascript/';
 		</script>
 		<script src="javascript/cssParser.js"></script>
 		<script src="javascript/css-filters-polyfill.js"></script>
 
         <script>
             var x = document.getElementById("demo");
+            
             function getLocation() {
                 if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(showPosition);
+                    showCustomer(position.coords.latitude, position.coords.longitude)
+                    //navigator.geolocation.getCurrentPosition(showPosition);
                 }
                 else { x.innerHTML = "Geolocation is not supported by this browser."; }
             }
             function showPosition(position) {
                 x.innerHTML = "Latitude: " + position.coords.latitude +
                 "<br>Longitude: " + position.coords.longitude;
+                
+                
             }
-</script>
+		</script>
 	</body>
 </html>
