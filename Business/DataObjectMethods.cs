@@ -79,7 +79,7 @@ namespace Business
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Insert)]
         public static void insertFavourite(Guid UserId, string StationID, DateTime DateFavourited)
         {
-            favouritesTableAdapter.Insert(UserId, StationID, DateFavourited); ;
+            favouritesTableAdapter.Insert(UserId, StationID, DateFavourited);
         }
 
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Update)]

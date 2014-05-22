@@ -2406,7 +2406,6 @@ namespace Data {
                 this.columnUserId.AllowDBNull = false;
                 this.columnStationId.AllowDBNull = false;
                 this.columnStationId.MaxLength = 50;
-                this.columnDateFavourited.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3259,11 +3258,28 @@ namespace Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime DateFavourited {
                 get {
-                    return ((global::System.DateTime)(this[this.tableFavourites.DateFavouritedColumn]));
+                    try {
+                        return ((global::System.DateTime)(this[this.tableFavourites.DateFavouritedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DateFavourited\' in table \'Favourites\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableFavourites.DateFavouritedColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDateFavouritedNull() {
+                return this.IsNull(this.tableFavourites.DateFavouritedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDateFavouritedNull() {
+                this[this.tableFavourites.DateFavouritedColumn] = global::System.Convert.DBNull;
             }
         }
         
