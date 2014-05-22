@@ -117,11 +117,15 @@ namespace Business
             return getStationsFromCityTableAdapter.GetData(City);
         }
 
+<<<<<<< HEAD
         // Select Closest Stations
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select, false)]
         public static Data.n8925666.SelectClosestStationsDataTable selectClosestStations(double LatLow, double LatHigh, double LongLow, double LongHigh)
         {
             return selectClosestStationsTableAdapter.GetData(LatLow, LatHigh, LongLow, LongHigh);
         }
+=======
+
+>>>>>>> 27c248f75f5184bdfdf582511090158c7e9b16f9
     }
 }
