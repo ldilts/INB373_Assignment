@@ -31,7 +31,7 @@ namespace Business
             networksTableAdapter.Insert(NetworkId, Company, Href, Latitude, Longitude, City, Country);
         }
 
-        /*
+        
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Update)]
         public static void updateNetwork(string Company, string Href, double Latitude, double Longitude, string City, string Country, string Original_NetworkId)
         {
@@ -43,7 +43,7 @@ namespace Business
         {
             networksTableAdapter.Delete(Original_NetworkId);
         }
-        */
+        
 
         // STATIONS
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select, true)]
@@ -57,7 +57,7 @@ namespace Business
         {
             stationsTableAdapter.Insert(StationId, Name, Latitude, Longitude, FreeBikes, Slots, StationTimeStamp, NetworkId);
         }
-        /*
+        
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Update)]
         public static void updateStation(string Name, double Latitude, double Longitude, int FreeBikes, int Slots, DateTime StationTimeStamp, string NetworkId, string Original_StationId)
         {
@@ -69,7 +69,7 @@ namespace Business
         {
             stationsTableAdapter.Delete(Original_StationId);
         }
-        */
+        
 
         // Get Stations From Network
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select, false)]

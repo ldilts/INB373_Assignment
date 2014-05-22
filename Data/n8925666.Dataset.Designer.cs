@@ -38,6 +38,8 @@ namespace Data {
         
         private getStationsFromCityDataTable tablegetStationsFromCity;
         
+        private global::System.Data.DataRelation relationFK__Stations__Networ__339FAB6E;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -294,6 +296,7 @@ namespace Data {
                     this.tablegetStationsFromCity.InitVars();
                 }
             }
+            this.relationFK__Stations__Networ__339FAB6E = this.Relations["FK__Stations__Networ__339FAB6E"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -314,6 +317,10 @@ namespace Data {
             base.Tables.Add(this.tablegetSingleUserFavouriteStations);
             this.tablegetStationsFromCity = new getStationsFromCityDataTable();
             base.Tables.Add(this.tablegetStationsFromCity);
+            this.relationFK__Stations__Networ__339FAB6E = new global::System.Data.DataRelation("FK__Stations__Networ__339FAB6E", new global::System.Data.DataColumn[] {
+                        this.tableNetworks.NetworkIdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableStations.NetworkIdColumn}, false);
+            this.Relations.Add(this.relationFK__Stations__Networ__339FAB6E);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -580,6 +587,13 @@ namespace Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public NetworksRow FindByNetworkId(string NetworkId) {
+                return ((NetworksRow)(this.Rows.Find(new object[] {
+                            NetworkId})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 NetworksDataTable cln = ((NetworksDataTable)(base.Clone()));
                 cln.InitVars();
@@ -621,7 +635,10 @@ namespace Data {
                 base.Columns.Add(this.columnCity);
                 this.columnCountry = new global::System.Data.DataColumn("Country", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCountry);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnNetworkId}, true));
                 this.columnNetworkId.AllowDBNull = false;
+                this.columnNetworkId.Unique = true;
                 this.columnNetworkId.MaxLength = 50;
                 this.columnCompany.MaxLength = 50;
                 this.columnHref.MaxLength = 50;
@@ -912,7 +929,7 @@ namespace Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public StationsRow AddStationsRow(string StationId, string Name, double Latitude, double Longitude, int FreeBikes, int Slots, System.DateTime StationTimeStamp, string NetworkId) {
+            public StationsRow AddStationsRow(string StationId, string Name, double Latitude, double Longitude, int FreeBikes, int Slots, System.DateTime StationTimeStamp, NetworksRow parentNetworksRowByFK__Stations__Networ__339FAB6E) {
                 StationsRow rowStationsRow = ((StationsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         StationId,
@@ -922,10 +939,20 @@ namespace Data {
                         FreeBikes,
                         Slots,
                         StationTimeStamp,
-                        NetworkId};
+                        null};
+                if ((parentNetworksRowByFK__Stations__Networ__339FAB6E != null)) {
+                    columnValuesArray[7] = parentNetworksRowByFK__Stations__Networ__339FAB6E[0];
+                }
                 rowStationsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStationsRow);
                 return rowStationsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public StationsRow FindByStationId(string StationId) {
+                return ((StationsRow)(this.Rows.Find(new object[] {
+                            StationId})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -974,7 +1001,10 @@ namespace Data {
                 base.Columns.Add(this.columnStationTimeStamp);
                 this.columnNetworkId = new global::System.Data.DataColumn("NetworkId", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNetworkId);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnStationId}, true));
                 this.columnStationId.AllowDBNull = false;
+                this.columnStationId.Unique = true;
                 this.columnStationId.MaxLength = 50;
                 this.columnName.MaxLength = 50;
                 this.columnLatitude.AllowDBNull = false;
@@ -1285,6 +1315,13 @@ namespace Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public getStationsFromNetworkRow FindByStationId(string StationId) {
+                return ((getStationsFromNetworkRow)(this.Rows.Find(new object[] {
+                            StationId})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 getStationsFromNetworkDataTable cln = ((getStationsFromNetworkDataTable)(base.Clone()));
                 cln.InitVars();
@@ -1329,7 +1366,10 @@ namespace Data {
                 base.Columns.Add(this.columnStationTimeStamp);
                 this.columnNetworkId = new global::System.Data.DataColumn("NetworkId", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNetworkId);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnStationId}, true));
                 this.columnStationId.AllowDBNull = false;
+                this.columnStationId.Unique = true;
                 this.columnStationId.MaxLength = 50;
                 this.columnName.MaxLength = 50;
                 this.columnLatitude.AllowDBNull = false;
@@ -1978,6 +2018,13 @@ namespace Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public getStationsFromCityRow FindByStationId(string StationId) {
+                return ((getStationsFromCityRow)(this.Rows.Find(new object[] {
+                            StationId})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 getStationsFromCityDataTable cln = ((getStationsFromCityDataTable)(base.Clone()));
                 cln.InitVars();
@@ -2022,7 +2069,10 @@ namespace Data {
                 base.Columns.Add(this.columnStationTimeStamp);
                 this.columnNetworkId = new global::System.Data.DataColumn("NetworkId", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNetworkId);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnStationId}, true));
                 this.columnStationId.AllowDBNull = false;
+                this.columnStationId.Unique = true;
                 this.columnStationId.MaxLength = 50;
                 this.columnName.MaxLength = 50;
                 this.columnLatitude.AllowDBNull = false;
@@ -2316,6 +2366,17 @@ namespace Data {
             public void SetCountryNull() {
                 this[this.tableNetworks.CountryColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public StationsRow[] GetStationsRows() {
+                if ((this.Table.ChildRelations["FK__Stations__Networ__339FAB6E"] == null)) {
+                    return new StationsRow[0];
+                }
+                else {
+                    return ((StationsRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Stations__Networ__339FAB6E"])));
+                }
+            }
         }
         
         /// <summary>
@@ -2422,6 +2483,17 @@ namespace Data {
                 }
                 set {
                     this[this.tableStations.NetworkIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public NetworksRow NetworksRow {
+                get {
+                    return ((NetworksRow)(this.GetParentRow(this.Table.ParentRelations["FK__Stations__Networ__339FAB6E"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Stations__Networ__339FAB6E"]);
                 }
             }
             
