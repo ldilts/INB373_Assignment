@@ -48,7 +48,7 @@ var ModalEffects = (function () {
                 removeModalHandler();
             });
             
-            el.click();
+            //el.click();
         });
 
     }

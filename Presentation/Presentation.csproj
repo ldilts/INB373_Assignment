@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\appbar.magnify.png" />
     <Content Include="Register.aspx" />
     <Content Include="stylesheets\component.css" />
     <Content Include="stylesheets\default.css" />

@@ -17,6 +17,8 @@ perspective effects (not including the modals and the overlay).
 	min-height: 100%;
 }
 
+
+
 .md-modal {
 	position: fixed;
 	top: 50%;
@@ -49,7 +51,7 @@ perspective effects (not including the modals and the overlay).
 	left: 0;
 	z-index: 1000;
 	opacity: 0;
-	background: rgba(0,0,0,0.8);
+	background: rgba(255,255,255,0.8);
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
@@ -78,7 +80,7 @@ perspective effects (not including the modals and the overlay).
 	font-size: 2.4em;
 	font-weight: 300;
 	opacity: 0.8;
-	background: rgba(0,0,0,0.1);
+	background: rgba(255,255,255,0.1);
 	border-radius: 3px 3px 0 0;
 }
 
@@ -115,7 +117,7 @@ perspective effects (not including the modals and the overlay).
 
 /* Effect 16:  Blur */
 .md-show.md-effect-16 ~ .md-overlay {
-	background: rgba(0,0,0,0.5);
+	background: rgba(255,255,255,0.5);
 }
 
 .md-show.md-effect-16 ~ .container {

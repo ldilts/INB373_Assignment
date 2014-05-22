@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Presentation.Default1" %>
+﻿<%--<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Presentation.Default1" %>--%>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head id="Head1" runat="server">
@@ -19,8 +19,9 @@
 			<div class="md-content">
 				<h3>Bikeway</h3>
 				<div>
+                    
 					<p>Welcome to bikeway! Please login or press continue</p>
-                    <form id="form1" runat="server">
+                  <%--  <form id="form1" runat="server">
                            <asp:LoginView ID="LoginView1" runat="server">
                                 <AnonymousTemplate>
                                     You&#39;re not logged in!
@@ -38,7 +39,7 @@
                                     <asp:LoginStatus ID="LoginStatus1" runat="server" />
                                 </LoggedInTemplate>
                             </asp:LoginView>
-                        </form>
+                        </form>--%>
 					<ul>
 						
 					</ul>
@@ -52,21 +53,38 @@
             <!-- Top Navigation -->
 			<div class="codrops-top clearfix">
 				<div class="codrops-top clearfix">
-				<span class="right"><button class="md-trigger" data-modal="modal-16">Sign in</button></span>
+                    <asp:LoginView>
+                        <AnonymousTemplate>
+                            <span class="right"><button class="md-trigger" data-modal="modal-16">Sign in</button></span>
+                        </AnonymousTemplate>
+                    </asp:LoginView>
+                    				
 			</div>
 			</div>
 			<header>
 				<h1> BIKEWAY <span>The best source for shared-bikes information</span></h1>
 			</header>
-			<div class="main clearfix">
-				<div class="column">
+			<div class="main-page">
+
+<%--				<div class="column">
 					<p>Something here :)</p>
 				</div>
 				<div class="column">
 				<button id="demo" onclick="getLocation()">Demo</button>	
 					
 				
-				</div>
+				</div>--%>
+                <form id="form2" runat="server"  >
+                <div>
+                    <asp:Label runat="server" Text="Type in your city" class="text-large"/>
+        
+                    <br />
+                    <div>
+                        <asp:TextBox  runat="server" CssClass="text-box-large" />
+                        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="/images/appbar.magnify.png"  CssClass="button search-button" />
+                    </div>
+                </div>
+                </form>
 			</div>
 		</div><!-- /container -->
 		<div class="md-overlay"></div><!-- the overlay element -->

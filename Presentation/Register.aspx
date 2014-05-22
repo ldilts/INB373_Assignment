@@ -34,7 +34,7 @@
                         <div>    
                             <h1>Register</h1>
                             <p >
-    <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" ContinueDestinationPageUrl="~/Default.aspx" ActiveStepIndex="1" >
+    <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" ContinueDestinationPageUrl="~/Default.aspx" ActiveStepIndex="0" >
 	    <WizardSteps>
 		    <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server"  >
 		        <ContentTemplate>             
@@ -79,11 +79,10 @@
             </asp:CreateUserWizardStep>
 		    <asp:CompleteWizardStep ID="CompleteWizardStep1" runat="server" >
 	            <ContentTemplate>
-                            <tr align="center" >Your account has been successfully created.</tr>
+                            Your account has been successfully created
                             <br />
                             <br />
                                 <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" CommandName="Continue" Text="Continue" ValidationGroup="CreateUserWizard1" CssClass="button" />
-
 
                 </ContentTemplate>
             </asp:CompleteWizardStep>
