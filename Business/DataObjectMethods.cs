@@ -14,6 +14,7 @@ namespace Business
 
         private static DataAccess.n8925666TableAdapters.NetworksTableAdapter networksTableAdapter = new DataAccess.n8925666TableAdapters.NetworksTableAdapter();
         private static DataAccess.n8925666TableAdapters.StationsTableAdapter stationsTableAdapter = new DataAccess.n8925666TableAdapters.StationsTableAdapter();
+        private static DataAccess.n8925666TableAdapters.FavouritesTableAdapter favouritesTableAdapter = new DataAccess.n8925666TableAdapters.FavouritesTableAdapter();
         private static DataAccess.n8925666TableAdapters.getStationsFromNetworkTableAdapter getStationsFromNetworkTableAdapter = new DataAccess.n8925666TableAdapters.getStationsFromNetworkTableAdapter();
         private static DataAccess.n8925666TableAdapters.getSingleUserFavouriteStationsTableAdapter getSingleUserFavouriteStationsTableAdapter = new DataAccess.n8925666TableAdapters.getSingleUserFavouriteStationsTableAdapter();
         private static DataAccess.n8925666TableAdapters.getStationsFromCityTableAdapter getStationsFromCityTableAdapter = new DataAccess.n8925666TableAdapters.getStationsFromCityTableAdapter();
@@ -31,7 +32,7 @@ namespace Business
             networksTableAdapter.Insert(NetworkId, Company, Href, Latitude, Longitude, City, Country);
         }
 
-        /*
+        
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Update)]
         public static void updateNetwork(string Company, string Href, double Latitude, double Longitude, string City, string Country, string Original_NetworkId)
         {
@@ -43,8 +44,7 @@ namespace Business
         {
             networksTableAdapter.Delete(Original_NetworkId);
         }
-        */
-
+        
         // STATIONS
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select, true)]
         public Data.n8925666.StationsDataTable  selectStations()
@@ -57,7 +57,7 @@ namespace Business
         {
             stationsTableAdapter.Insert(StationId, Name, Latitude, Longitude, FreeBikes, Slots, StationTimeStamp, NetworkId);
         }
-        /*
+        
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Update)]
         public static void updateStation(string Name, double Latitude, double Longitude, int FreeBikes, int Slots, DateTime StationTimeStamp, string NetworkId, string Original_StationId)
         {
@@ -69,7 +69,31 @@ namespace Business
         {
             stationsTableAdapter.Delete(Original_StationId);
         }
-        */
+        
+        // FAVOURITES
+        [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select, false)]
+        public static Data.n8925666.FavouritesDataTable selectUserFavourites(Guid UserId)
+        {
+            return favouritesTableAdapter.GetData(UserId);
+        }
+        [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Insert)]
+        public static void insertFavourite(Guid UserId, string StationID, DateTime DateFavourited)
+        {
+            favouritesTableAdapter.Insert(UserId, StationID, DateFavourited); ;
+        }
+
+        [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Update)]
+        public static void updateFavourite(DateTime DateFavourited, Guid Original_UserId, string Original_StationID)
+        {
+            favouritesTableAdapter.Update(DateFavourited, Original_UserId, Original_StationID);
+        }
+
+        [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Delete)]
+        public static void deleteFavourite(Guid Original_UserId, string Original_StationID)
+        {
+            favouritesTableAdapter.Delete(Original_UserId, Original_StationID);
+        }
+
 
         // Get Stations From Network
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select, false)]
@@ -82,7 +106,6 @@ namespace Business
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select, false)]
         public static Data.n8925666.getSingleUserFavouriteStationsDataTable getSingleUserFavouriteStations(Guid UserId)
         {
-            //return getSingleUserFavouriteStationsTableAdapter.GetData(UserId);
             return getSingleUserFavouriteStationsTableAdapter.GetData(UserId);
         }
 
